@@ -24,6 +24,7 @@ Route::get('/clients', function () {
     return view('clients.index');
 });
 
+/*
 Route::get('/clients', function () {
     $clientsMock = [
     'Jean1',
@@ -34,9 +35,14 @@ Route::get('/clients', function () {
     'clients' => $clientsMock
     ]);
 });
+*/
 
 Route::get('/clients', 'ClientsController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/clients', 'ClientsController@store');
+
+Route::get('/clients/{client}', 'ClientsController@show');
